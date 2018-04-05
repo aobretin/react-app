@@ -1,0 +1,99 @@
+
+
+$mainFont: (
+  'Regular'         : 'CoreSansR35Regular',
+  'RegularItalic'   : 'CoreSansR35Regular-Italic',
+  'Medium'          : 'CoreSansR45Medium',
+  'MediumItalic'    : 'CoreSansR45Medium-Italic',
+  'Bold'            : 'CoreSansR55Bold',
+  'BoldItalic'      : 'CoreSansR55Bold-Italic',
+  'Light'           : 'CoreSansR15Thin',
+  'LightItalic'     : 'CoreSansR15Thin-Italic',
+  'Black'           : 'CoreSansR75Black',
+  'BlackItalic'     : 'CoreSansR75Black-Italic'
+);
+
+@mixin main-font($name) {
+  @if ( map-has-key($mainFont, $name) ) {
+    font-family: map-get($mainFont, $name);
+  }
+  @else {
+    font-family: map-get($mainFont, 'Regular');
+  }
+}
+
+
+/* RTL support mixin */
+@mixin bidi-style($prop, $value, $inverse-prop, $default-value) {
+  #{$prop}: $value;
+  
+  [dir=rtl] & {
+    #{$inverse-prop}: $value;
+    #{$prop}: $default-value;
+  }
+}
+@mixin bidi-prop($prop, $value, $inverseValue) {
+	#{$prop}: $value;
+	[dir=rtl] & {
+		#{$prop}: $inverseValue;
+	}
+}
+
+@function calculateRem($size) {
+  //$remSize: $size / 10px;
+  //@return $remSize * 1rem;
+  $remSize: $size / 16px;
+  @return $size * 0.0625rem;  // 16px base
+}
+
+@function rems($size) {
+  @return $size * 0.0625rem;  // 16px base
+  //@return $size * 0.1rem;   // 10px base
+}
+
+// a mixin to return a property in 'px' and 'rem' units
+@mixin prop-rem($prop,$units) { // provide units equal to px value
+  #{$prop}: #{$units}px;
+  $remUnits: $units / 16;
+  #{$prop}: #{$remUnits}rem;
+}
+
+@mixin font-size($size) {
+  font-size: #{$size}px;
+  font-size: calculateRem($size);
+}
+
+//@mixin spritesClasses($spritename) {
+//	.icon-#{$spritename} {
+//		@include sprites($spritename);
+//	}
+//}
+//@each $sprite in $sprites {
+//	@include spritesClasses($sprite);
+//}
+
+
+//Utility function to return the relevant colour depending on what type of arrow it is
+@function setTriangleColor($direction, $side, $color) {
+ 
+    @if $direction == "left" and $side == "right" 
+    or  $direction == "right" and $side == "left" 
+    or $direction == "down" and $side == "top" 
+    or $direction == "up" and $side == "bottom" {
+        @return $color
+    } @else {
+        @return "transparent";
+    }
+ 
+}
+//==== Example: @include css-triangle ("up", 10px, #fff);
+@mixin css-triangle($direction: "down", $size: 20, $color: #000) {
+    width: #{$size}px;
+    width: rem($size);
+    height: #{$size}px;
+    height: rem($size);
+    border-left: #{$size}px solid #{setTriangleColor($direction, "left", $color)};
+    border-right: #{$size}px solid #{setTriangleColor($direction, "right", $color)};
+    border-bottom: #{$size}px solid #{setTriangleColor($direction, "bottom", $color)};
+    border-top: #{$size}px solid #{setTriangleColor($direction, "top", $color)};
+} 

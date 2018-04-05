@@ -1,0 +1,26 @@
+.hotel-occupancy {
+  min-width: 548px;
+  padding: 0 10px;
+  .slider-label {
+    padding-bottom: 10px;
+  }
+
+  .slider {
+    padding-bottom: 30px;
+
+    span {
+      color: #aaa;
+      font-size:70%;
+  		@include main-font('RegularItalic');
+  		color: #aaa;
+    }
+  }
+
+  .flight-occ {
+    border-top: 1px solid $borderedColor;
+  }
+
+  .col-2 {
+    padding-left: 10px;
+  }
+}

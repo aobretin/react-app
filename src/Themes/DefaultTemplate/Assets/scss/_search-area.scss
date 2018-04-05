@@ -1,0 +1,161 @@
+.search-area {
+	background-color:  rgba($mainBlue, .95);
+	align-self: center;
+	border-radius: 4px;
+	color:#eee;
+	//@include font-size(16px);
+	font-size:18px;
+	font-size:rem(18);
+	padding-bottom:30px;
+	padding-bottom:rems(30);
+}
+.search-tabs {
+	margin-top:-3.5rem;
+	justify-content: center;
+	//font-family: 'Calibri', sans-serif;
+
+	&.nav-pills .nav-link {
+		border-bottom-left-radius:0;
+		border-bottom-right-radius:0;
+		background-color: rgba(#fff, 0.9);
+		margin-left:1px;
+		margin-left:rem(1);
+		color:$mainBlue;
+
+		font-size:116.5%;
+		font-weight:600;
+		padding: 1rem 1.5rem;
+
+		//$services: ('flight', 'hotel', 'flight-hotel');
+		//@each $service in $services {
+		//	.icon-#{$service} {
+		//		@include sprite(#{$service}-off);
+		//	}
+		//}
+
+		[class^="icon-"] {
+			margin: 0 0.25rem;
+		}
+
+		&.active {
+			background-color: rgba($mainBlue, .95);
+			color:#fff;
+		}
+	}
+}
+
+.search-area .bordered-group {
+	margin:15px;
+	margin:rems(15);
+    //margin-bottom: 5px;
+    //margin-bottom: rems(5);
+
+	label {
+		font-size:72.25%;
+		@include main-font('RegularItalic');
+		//font-style:italic;
+		color: #aaa;
+		@include prop-rem(margin-bottom, 2.4);
+	}
+
+	input {
+		background-color:transparent;
+		border:none;
+		padding:0;
+		color:$activeColor;
+		font-weight:600;
+
+		&::-webkit-input-placeholder,
+		&::-moz-placeholder,
+		&:-ms-input-placeholder,
+		&:-moz-placeholder {
+			font-weight:300;
+			font-style:italic;
+		}
+	}
+}
+
+.below-group-options {
+	margin-top:-12px;
+	margin-top:rems(-12);
+}
+
+.typeahead.dropdown-menu {
+    margin-top: 8px;
+    margin-top: rems(8);
+    //width: 100%;
+    @include bidi-style(margin-left, -0.9rem, margin-right, 0);
+
+    @include bidi-prop(text-align, left, right);
+
+    .dropdown-item {
+    	font-weight:400;
+    	@include font-size(15);
+    	padding:0.25rem 1rem;
+
+    	[class^="icon-"] {
+    		transform:scale(0.8);
+    		@include bidi-style(margin-left, 5px, margin-right, 0);
+    	}
+    }
+
+	.dropdown-item .icon-airport-on { display:none; }
+	.dropdown-item .icon-airport-off { display:inline-block; }
+	.dropdown-item:hover .icon-airport-on { display:inline-block; }
+	.dropdown-item:hover .icon-airport-off { display:none; }
+}
+
+
+.col-datepicker [class^="icon-"] {
+	top:0;
+	right:5px;
+	right:rems(5);
+	margin-top: 18px;
+	margin-top: rem(18);
+}
+.drop-datepicker {
+	top:0;
+	left:0;
+    margin-top: -35px;
+    margin-top: rems(-35);
+}
+
+.icon-switch-on {
+	top:0;
+	margin-top:18px;
+	margin-top:rems(18);
+	@include bidi-style(right, 5px, left, auto);
+	cursor:pointer;
+}
+
+.DateInput .icon-calendar-on { display: none; }
+.DateInput--with-caret .icon-calendar-on { display: inline-block; }
+.DateInput .icon-calendar-off { display: inline-block; }
+.DateInput--with-caret .icon-calendar-off { display: none; }
+
+.search-btn-drop {
+	position:absolute;
+	top:auto;
+	bottom:-2rem;
+	@include bidi-style(right, 15px, left, auto);
+}
+.search-btn-container {
+	padding:12px;
+	background-color:rgba($mainBlue, 0.95);
+	border-radius: 5px;
+}
+.search-btn-container input {
+	background-color:$activeColor;
+	transition: all .2s ease-in-out;
+	color: $mainBlue;
+	text-transform: capitalize;
+	@include main-font('Bold');
+	@include font-size(23);
+	font-weight:700;
+	letter-spacing:1px;
+	cursor:pointer;
+
+	&:disabled {
+		background-color:lighten($activeColor, 5%);
+	}
+}

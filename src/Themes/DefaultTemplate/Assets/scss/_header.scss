@@ -1,0 +1,120 @@
+#currDrop 		{ @include prop-rem(max-width, 78); }
+#langDrop 		{ @include prop-rem(max-width, 50); }
+#cartDrop 		{ @include prop-rem(max-width, 110); }
+#profileDrop 	{ @include prop-rem(max-width, 42); }
+
+.brand-col {
+
+}
+.header-drops .dropdown.col {
+	flex-grow:0;
+	padding: 0 0.5rem;
+
+	&:last-child {
+    	flex-basis: 160px;
+    	@include bidi-style(padding-left, 15px, padding-right, 0);
+	}
+}
+.header-drops {
+    justify-content: flex-end;
+    align-items: center;
+
+    > *:last-child {
+    	flex-grow:0;
+    	flex-basis:220px;
+    }
+}
+.header-drops .col a {
+	display:block;
+	color:#fff;
+
+	    white-space: nowrap;
+
+	&:hover, &:active {
+		text-decoration: none;
+		color:$activeColor;
+		border-radius: $mainRadius;
+	}
+}
+.header-drops .col .dropdown-menu {
+	@include prop-rem(margin-top, 14);
+	border-radius:$mainRadius;
+}
+
+#cartDrop {
+
+	[class^="icon-"] {
+		transform: scale(0.7);
+	}
+
+	.detailed {
+		@include main-font('Regular');
+		font-weight:300;
+		flex-grow:1;
+		flex-direction:column;
+		padding-left:10px;
+		padding-left:rems(10);
+		padding-right:10px;
+		padding-right:rems(10);	
+
+		> div {
+			line-height:1.2em;
+		}	
+	}
+
+	.dropdown-item {
+		vertical-align: middle;
+		justify-content:center;
+	    min-width: 22rem;
+	    padding: 0.25rem 1rem;
+	    border-bottom:1px solid $borderBlue2;
+
+	    &:hover {
+	    	border-radius:$mainRadius;
+	    }
+
+	    > span:last-child {
+			@include bidi-prop(float, right, left);
+			@include main-font('Light');
+			font-weight: 100;
+			@include font-size(26);
+		    display: inline-block;
+		    padding: 0 0.5rem;
+		    cursor: pointer;
+		    transform: scaleX(1.5);
+		    margin: -8px;
+	    }
+	}
+}
+
+.row-total {
+	min-height:3rem;
+    align-items: center;
+	@include main-font('Regular');
+
+    a.btn {
+    	padding:0.25rem 0.75rem;
+    	width: auto;
+    	background-color:$activeColor;
+    	border-color:darken($activeColor, 5%);
+    	cursor:pointer;
+    	color:$mainBlue;
+
+    	&:hover {
+    		background-color:darken($activeColor, 5%);
+    		border-color:darken($activeColor, 8%);
+    		color:$mainBlue !important;
+    	}
+    	&:focus {
+    		outline-style: none;
+    	}
+    }
+}
+
+.dropdown-menu a {
+	cursor: pointer;
+}
+
+.dropdown-item:hover {
+	border-radius:inherit;
+}

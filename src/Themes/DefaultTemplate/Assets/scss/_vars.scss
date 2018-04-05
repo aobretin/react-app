@@ -1,0 +1,38 @@
+//$grid-gutter-width: 20px;
+
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// );
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1366px,
+  xxxl: 1920px
+);
+
+$container-max-widths: (
+//  sm: 540px,
+//  md: 720px,
+//  lg: 960px,
+//  xl: 1140px
+	sm: 1000px,
+  	md: 1000px,
+	lg: 1000px,
+  	xl: 1260px
+);
+
+$mainBlue: #1b2a5b !default;
+$activeBlue: darken(rgb(27, 42, 90), 5%);
+$borderBlue: rgb(165, 170, 188);
+$borderBlue2: rgba(104, 133, 191, 0.4);
+$borderedColor: rgba(#fff, 0.6);
+$activeColor: #ffcc00;
+$mainRadius: 4px;

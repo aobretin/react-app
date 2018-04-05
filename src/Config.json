@@ -1,0 +1,9 @@
+{
+  "services": [
+    "flight",
+    "hotel",
+    "flight_hotel"
+  ],
+  "MobileBreakpoint": "768",
+  "HotelSeparateDetailsPage": false
+}

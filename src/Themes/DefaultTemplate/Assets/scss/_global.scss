@@ -1,0 +1,230 @@
+//html {	font-size:16px;	font-size:62.5%; }
+body, html {
+	min-height:100%;
+	min-width:1024px;
+	min-width:rems(1024);
+	width:100%;
+	display:flex;
+	@include main-font('Regular');
+	background-color:$mainBlue;
+}
+#root {
+	display:flex;
+    flex-basis: 100%;
+}
+body {
+}
+
+.ReactModal__Overlay--after-open {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    z-index: 99 !important;
+}
+
+.preview-placeholder {
+	border: 2px solid red;
+	padding: 5px;
+}
+
+#Page {
+	height:100%;
+	min-height:100%;
+	display:flex;
+	flex-direction:column;
+	padding-left:0;
+	padding-right:0;
+
+    background-color: #fff;
+}
+.bg-img {
+	background-image:url('../img/bg.jpg');
+	background-repeat:no-repeat;
+}
+#Page > header,
+#Page > content,
+#Page > footer {
+	width:100%;
+}
+#Page > header {
+	color:#fff;
+	background-color:  rgba($mainBlue, .9);
+	height:60px;
+}
+#Page > content {
+	flex:1;
+}
+#Page > footer {
+	color:#fff;
+	background-color:  rgba(15, 25, 61, 0.9);
+	height:30px;
+}
+
+
+.row.no-margins{
+	margin-left:0;
+	margin-right:0;
+}
+.no-padding {
+	padding-left:0;
+	padding-right:0;
+}
+.flex {
+	display:flex;
+}
+.minh100 {
+	min-height:100%;
+}
+
+[class^="icon-"] {
+	display: inline-block;
+	vertical-align: middle;
+}
+a.white-text {
+	color:#fff;
+}
+
+
+.relative { position:relative; }
+.absolute { position:absolute; }
+
+.extended { padding-left:0;padding-right:0; }
+.extended-left {
+    @include bidi-style(padding-left, 0, padding-right, 15px);
+}
+.extended-right {
+    @include bidi-style(padding-right, 0, padding-left, 15px);
+}
+
+
+
+.bordered-group {
+	$borderedColor: rgba(#fff, 0.6);
+	> [class^="col"] {
+		border:1px solid $borderedColor;
+		border-left:none;
+		//@include bidi-style(border-left, 1px solid $borderedColor, border-right, 1px solid $borderedColor);
+
+		&:first-child {
+			@include bidi-style(border-top-left-radius, $mainRadius, border-top-right-radius, 0);
+			@include bidi-style(border-bottom-left-radius, $mainRadius, border-bottom-right-radius, 0);
+			border-left:1px solid $borderedColor;
+			//@include bidi-style(border-left, 1px solid $borderedColor, border-right, 0);
+		}
+		&:last-child {
+			//border-top-right-radius:$mainRadius;
+			@include bidi-style(border-top-right-radius, $mainRadius, border-top-left-radius, 0);
+			@include bidi-style(border-bottom-right-radius, $mainRadius, border-bottom-left-radius, 0);
+			flex:1;
+		}
+	}
+	> .col-3.row.no-gutters {
+		min-width:300px;
+	}
+}
+
+[dir="rtl"] .bordered-group > [class^="col"] {
+	border:1px solid $borderedColor;
+	border-left:1px solid $borderedColor;
+	border-right:none;
+
+	&:first-child {
+		border-right:1px solid $borderedColor;
+		//border-right:none;
+	}
+	&:last-child {
+		border-left:1px solid $borderedColor;
+	}
+}
+
+.active-color {
+	color: $activeColor;
+}
+
+.dropdown-menu {
+	background-color:$mainBlue;
+	border-color:rgba($borderBlue,0.4);
+	min-width:100%;
+    padding-top: 0;
+    padding-bottom: 0;
+
+	&:before {
+		content:"";
+		display:block;
+	    position: absolute;
+	    top: 0px;
+	    //left:8px;
+	    @include bidi-style(left, 8px, right, auto);
+	    margin-top:-24px;
+	    //margin-top:rems(-20);
+		@include css-triangle('up', 12, rgba($borderBlue,0.4));
+	}
+	&:after {
+		content:"";
+		display:block;
+	    position: absolute;
+	    top: 0px;
+	    //left:10px;
+	    @include bidi-style(left, 10px, right, auto);
+	    margin-top:-20px;
+	    //margin-top:rems(-20);
+		@include css-triangle('up', 10, $mainBlue);
+	}
+
+	&.align-right {
+		left:auto;
+		right:0;
+
+		&:before {
+			left:auto;
+			//right:8px;
+			@include bidi-style(right, 8px, left, auto);
+		}
+		&:after {
+			left:auto;
+			//right:10px;
+			@include bidi-style(right, 10px, left, auto);
+		}
+	}
+
+	a {
+		border-bottom:1px solid $borderBlue2;
+	}
+}
+
+[dir="rtl"] .dropdown-menu {
+	left:auto;
+	right:0;
+}
+
+[dir="rtl"] .dropdown-menu.align-right {
+	left:0;
+	right:auto;
+
+	&:before {
+		left: 8px;
+		right:auto;
+	}
+	&:after {
+		left: 10px;
+		right:auto;
+	}
+}
+
+.dropdown-item {
+	color:#fff;
+	font-weight:600;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+	background-color:rgba($activeBlue, 0.95);
+	color:$activeColor;
+}
+
+[class^="drop-"] {
+}
+
+select, select.form-control, select:active, select.form-control:active, select:focus, select.form-control:focus {
+	padding: 0 6px;
+	padding: 0 rems(6);
+    background-color: $mainBlue;
+    border: 1px solid $borderBlue;
+    color: #fff;
+}

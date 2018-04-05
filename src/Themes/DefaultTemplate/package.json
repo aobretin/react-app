@@ -1,0 +1,29 @@
+{
+  "name": "b2c_blrplate",
+  "version": "1.0.0",
+  "description": "design templates boilerplate for b2c",
+  "main": "index.js",
+  "scripts": {
+    "test": "testmuch"
+  },
+  "keywords": [
+    "b2c",
+    "design",
+    "html",
+    "template"
+  ],
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-include-replace": "^5.0.0",
+    "grunt-spritesmith": "^6.4.0",
+    "grunt-svginjector": "^0.1.1",
+    "grunt-svgstore": "^0.5.0"
+  },
+  "author": "CatalinM",
+  "license": "ISC"
+}
